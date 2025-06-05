@@ -210,7 +210,11 @@ body {
 }
 
 .nextPage:hover {
-  background-color: hsl(195, 53%, 60%);
+  background-color: hsl(195, 53%, 40%);
+}
+
+.prevPage:hover {
+  background-color: hsl(180, 100%, 85%);
 }
 
 @media screen and (min-width: 700px) {
