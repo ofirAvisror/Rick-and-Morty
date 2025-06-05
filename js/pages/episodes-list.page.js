@@ -75,16 +75,16 @@ function getEpisodeImage(episodeCode) {
 
 function onSetFilter() {
   const title = document.getElementById("filterTitle").value;
-  const minPrice = document.getElementById("filterMinPrice").value;
+  const season = document.getElementById("filterSeason").value;
   const filterBy = {};
   if (title) filterBy.title = title;
-  if (minPrice) filterBy.minPrice = parseFloat(minPrice);
+  if (season) filterBy.season = parseInt(season);
   renderEpisodes(filterBy);
 }
 
 function onClearFilter() {
   document.getElementById("filterTitle").value = "";
-  document.getElementById("filterMinPrice").value = "";
+  document.getElementById("filterSeason").value = "";
   renderEpisodes();
 }
 
