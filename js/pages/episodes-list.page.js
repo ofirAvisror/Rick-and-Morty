@@ -1,5 +1,6 @@
 import { episodeService } from "../services/Episodes-service.js";
 import { ELEMENT_ID } from "../shared/constants.js";
+import { getEpisodeImage } from "../services/utils.service.js";
 
 document.addEventListener("DOMContentLoaded", initEpisodeList);
 
@@ -18,7 +19,6 @@ function initEpisodeList() {
 function renderEpisodes(filterBy = {}) {
   const episodes = episodeService.getEpisodes(filterBy);
   const elEpisodeList = document.getElementById(ELEMENT_ID.EPISODE_LIST);
-
   if (!elEpisodeList) return;
 
   if (!episodes || episodes.length === 0) {
@@ -31,9 +31,7 @@ function renderEpisodes(filterBy = {}) {
     .map(
       (episode) => `
     <article class="episode-item" data-id="${episode.id}">
-      <img src="${getEpisodeImage(episode.episode)}" class="episodeImg" alt="${
-        episode.name
-      }">
+      <img src="${getEpisodeImage(episode.episode)}" alt="${episode.name}">
       <h3 class="episode-title">${episode.name}</h3>
       <p class="detail-item"><strong>Episode:</strong> ${episode.episode}</p>
       <div class="episode-actions">
@@ -54,27 +52,6 @@ function renderEpisodes(filterBy = {}) {
   elEpisodeList.innerHTML = strHTMLs;
 }
 
-function getEpisodeImage(episodeCode) {
-  const seasonMatch = episodeCode.match(/S(\d{2})/);
-  if (!seasonMatch) return "../../assets/images/book.jpeg";
-
-  const season = seasonMatch[1];
-  switch (season) {
-    case "01":
-      return "../../assets/images/season1.jpg";
-    case "02":
-      return "../../assets/images/season2.jpg";
-    case "03":
-      return "../../assets/images/season3.jpg";
-    case "04":
-      return "../../assets/images/season4.jpg";
-    case "05":
-      return "../../assets/images/season5.jpg";
-    default:
-      return "../../assets/images/book.jpeg";
-  }
-}
-
 function onSetFilter() {
   const title = document.getElementById("filterTitle").value;
   const season = document.getElementById("filterSeason").value;
@@ -83,6 +60,7 @@ function onSetFilter() {
   if (season) filterBy.season = parseInt(season);
   renderEpisodes(filterBy);
 }
+
 function onClearFilter() {
   document.getElementById("filterTitle").value = "";
   document.getElementById("filterSeason").value = "";

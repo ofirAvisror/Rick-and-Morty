@@ -1,5 +1,6 @@
 import { episodeService } from "../services/Episodes-service.js";
 import { ELEMENT_ID } from "../shared/constants.js";
+import { getEpisodeImage } from "../services/utils.service.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   episodeService.loadEpisodes(() => {
@@ -42,7 +43,7 @@ function renderEpisodeDetails() {
       episode.name
     }" class="episode-image-detail">
       <h2 class="episode-title-detail">${episode.name}</h2>
-      <div class="detail-item"><strong>"aired on:"</strong> ${
+      <div class="detail-item"><strong>aired on:</strong> ${
         episode.air_date
       }</div>
       <div class="detail-item"><strong>episode:</strong> ${
@@ -56,8 +57,10 @@ function renderEpisodeDetails() {
     `;
   } else {
     document.title = "Episode Not Found";
-    elDetails.innerHTML =
-      '<p class="error-message">Episode not found. It might have been deleted or the ID is incorrect.</p>  <a href="episodes-list.html" class="action-link back-btn-detail" style="display:block; text-align:center; margin-top:20px;">Back to Episodes</a>';
+    elDetails.innerHTML = `
+      <p class="error-message">Episode not found. It might have been deleted or the ID is incorrect.</p>
+      <a href="episodes-list.html" class="action-link back-btn-detail" style="display:block; text-align:center; margin-top:20px;">Back to Episodes</a>
+    `;
   }
 }
 

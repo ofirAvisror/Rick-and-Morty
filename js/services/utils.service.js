@@ -1,10 +1,17 @@
-export function generateId(length = 8) {
-  let result = "";
-  const characters =
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-  const charactersLength = characters.length;
-  for (let i = 0; i < length; i++) {
-    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+export function getEpisodeImage(episodeCode) {
+  const match = episodeCode.match(/S(\d{2})/);
+  if (!match) return "";
+  const season = match[1];
+  switch (season) {
+    case "01":
+      return "../../assets/images/season1.jpg";
+    case "02":
+      return "../../assets/images/season2.jpg";
+    case "03":
+      return "../../assets/images/season3.jpg";
+    case "04":
+      return "../../assets/images/season4.jpg";
+    case "05":
+      return "../../assets/images/season5.jpg";
   }
-  return result;
 }
