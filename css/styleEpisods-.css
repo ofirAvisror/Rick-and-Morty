@@ -9,8 +9,13 @@ body{
   align-items: center;
   text-align: center;
   flex-direction: column;
-  background: url(../assets/images/home.jpg) repeat center center;
-  color: #333;
+  background-image: url("../assets/images/portal1.jpeg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+   height: 100vh;
+   height: 100vh;
+ color: #333;
 }
 
 .container{

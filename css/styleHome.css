@@ -9,7 +9,11 @@ body{
   align-items: center;
   text-align: center;
   flex-direction: column;
-  background: url(../assets/images/home.jpg) ;
+  background-image: url("../assets/images/home.jpg");
+  background-size: contain;
+background-repeat: no-repeat;
+background-position: center;
+   height: 100vh;
   color: #333;
 }
 
