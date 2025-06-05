@@ -38,8 +38,8 @@ function renderEpisodeDetails() {
     const favoriteButtonClass = episode.favorite ? "is-favorite" : "";
 
     elDetails.innerHTML = `
-      <img src="${getEpisodeImage(episode.genre)}" alt="${
-      episode.title
+      <img src="${getEpisodeImage(episode.episode)}" alt="${
+      episode.name
     }" class="episode-image-detail">
       <h2 class="episode-title-detail">${episode.name}</h2>
       <div class="detail-item"><strong>"aired on:"</strong> ${

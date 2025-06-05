@@ -52,21 +52,22 @@ function renderEpisodes(filterBy = {}) {
   elEpisodeList.innerHTML = strHTMLs;
 }
 
-function getEpisodeImage(genre) {
-  genre = genre ? genre.toLowerCase() : "default";
-  switch (genre) {
-    case "s0":
-      return "../../assets/images/book.jpeg";
-    case "s1":
-      return "../../assets/images/bookFantasy.png";
-    case "s2":
-      return "../../assets/images/bookMystery.png";
-    case "s3":
-      return "../../assets/images/bookMystery.png";
-    case "s4":
-      return "../../assets/images/bookMystery.png";
-    case "s5":
-      return "../../assets/images/bookMystery.png";
+function getEpisodeImage(episodeCode) {
+  const seasonMatch = episodeCode.match(/S(\d{2})/);
+  if (!seasonMatch) return "../../assets/images/book.jpeg";
+
+  const season = seasonMatch[1];
+  switch (season) {
+    case "01":
+      return "../../assets/images/season1.png";
+    case "02":
+      return "../../assets/images/season2.png";
+    case "03":
+      return "../../assets/images/season3.png";
+    case "04":
+      return "../../assets/images/season4.png";
+    case "05":
+      return "../../assets/images/season4.png";
     default:
       return "../../assets/images/book.jpeg";
   }
