@@ -1,161 +1,162 @@
 .episode-details-container {
-    background-color: rgba(255, 248, 239, 0.95);
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.1);
-    margin-top: 30px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left;
+  background-color: rgba(255, 248, 239, 0.95);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
-.episode-details-container .book-title-detail {
-    font-size: 2.2rem;
-    color: #333;
-    margin-bottom: 10px;
-    border-bottom: 2px solid #e579b1;
-    padding-bottom: 10px;
+.episode-details-container .episode-title-detail {
+  font-size: 2.2rem;
+  color: #333;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #e579b1;
+  padding-bottom: 10px;
 }
 
-.episode-details-container .book-author-detail {
-    font-size: 1.3rem;
-    color: #555;
-    margin-bottom: 20px;
-    font-style: italic;
+.episode-details-container .episode-author-detail {
+  font-size: 1.3rem;
+  color: #555;
+  margin-bottom: 20px;
+  font-style: italic;
 }
 
 .episode-details-container .detail-item {
-    margin-bottom: 12px;
-    font-size: 1.1rem;
+  margin-bottom: 12px;
+  font-size: 1.4rem;
 }
 
 .episode-details-container .detail-item strong {
-    color: #444;
-    min-width: 120px;
-    display: inline-block;
+  color: #444;
+  min-width: 10px;
+  display: inline-block;
 }
 
-.episode-details-container .book-description-detail {
-    margin-top: 20px;
-    padding-top: 15px;
-    border-top: 1px solid #eee;
-    line-height: 1.7;
-    font-size: 1.05rem;
+.episode-details-container .episode-description-detail {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+  line-height: 1.7;
+  font-size: 1.05rem;
 }
 
-.episode-details-container .book-image-detail {
-    max-width: 200px;
-    height: auto;
-    border-radius: 8px;
-    float: right;
-    margin-left: 20px;
-    margin-bottom: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+.episode-details-container .episode-image-detail {
+  max-width: 60%;
+  height: auto;
+  border-radius: 8px;
+  float: right;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .episode-details-actions {
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 1px solid #ddd;
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 .episode-details-actions button,
 .episode-details-actions .action-link {
-    padding: 10px 18px;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    border: none;
-    text-decoration: none;
-    text-align: center;
-    transition: background-color 0.3s, transform 0.2s;
-    min-width: 120px;
+  padding: 10px 18px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.3s, transform 0.2s;
+  min-width: 120px;
 }
 
 .episode-details-actions .edit-btn-detail {
-    background-color: #777;
-    color: white;
+  background-color: #777;
+  color: white;
 }
 .episode-details-actions .edit-btn-detail:hover {
-    background-color: #666;
-    transform: scale(1.03);
+  background-color: #666;
+  transform: scale(1.03);
 }
 
 .episode-details-actions .delete-btn-detail {
-    background-color: #d9534f;
-    color: white;
+  background-color: #d9534f;
+  color: white;
 }
 .episode-details-actions .delete-btn-detail:hover {
-    background-color: #c9302c;
-    transform: scale(1.03);
+  background-color: #c9302c;
+  transform: scale(1.03);
 }
 
 .episode-details-actions .favorite-btn-detail {
-    background-color: #f0ad4e;
-    color: white;
+  background-color: #f0ad4e;
+  color: white;
 }
 .episode-details-actions .favorite-btn-detail.is-favorite {
-    background-color: #5cb85c;
+  background-color: #5cb85c;
 }
 .episode-details-actions .favorite-btn-detail:hover {
-    opacity: 0.9;
-    transform: scale(1.03);
+  opacity: 0.9;
+  transform: scale(1.03);
 }
 
 .episode-details-actions .back-btn-detail {
-    background-color: #337ab7;
-    color: white;
+  background-color: #337ab7;
+  color: white;
 }
 .episode-details-actions .back-btn-detail:hover {
-    background-color: #286090;
-    transform: scale(1.03);
+  background-color: #286090;
+  transform: scale(1.03);
 }
 
-.loading-message, .error-message {
-    text-align: center;
-    font-size: 1.2rem;
-    padding: 20px;
-    color: #777;
+.loading-message,
+.error-message {
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 20px;
+  color: #777;
 }
-
 
 body {
-    background: url(../assets/images/second.jpg) repeat center center/ cover;
-    color: #333;
+  background: url(../assets/images/second.jpg) repeat center center/ cover;
+  color: #333;
 }
 .main-header {
-    width: 100%;
-    background-color: rgba(255, 241, 209, 0.9);
-    padding: 10px 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  width: 100%;
+  background-color: rgba(255, 241, 209, 0.9);
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-.link-area{
-    display: flex;
-    justify-content: center;
-    gap: 15px;
+.link-area {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
 }
-.link-area a{
-    color: rgb(100, 100, 220);
-    padding: 8px 12px;
-    font-size: 1rem;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: background-color 0.3s, transform 0.3s;
+.link-area a {
+  color: rgb(100, 100, 220);
+  padding: 8px 12px;
+  font-size: 1rem;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s, transform 0.3s;
 }
-.link-area a:hover{
+.link-area a:hover {
   background-color: rgb(204, 229, 238);
   transform: scale(1.05);
 }
 .container {
-    width: 90%;
-    max-width: 900px;
-    margin: 20px auto;
+  width: 90%;
+  max-width: 900px;
+  margin: 20px auto;
 }

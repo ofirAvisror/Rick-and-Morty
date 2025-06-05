@@ -43,10 +43,8 @@ function renderEpisodeDetails() {
       episode.name
     }" class="episode-image-detail">
       <h2 class="episode-title-detail">${episode.name}</h2>
-      <div class="detail-item"><strong>aired on:</strong> ${
-        episode.air_date
-      }</div>
-      <div class="detail-item"><strong>episode:</strong> ${
+      <div class="detail-item"><strong>Aired on:</strong> ${episode.air_date}</div>
+      <div class="detail-item"><strong>Episode:</strong> ${
         episode.episode
       }</div>
       <div class="detail-item"><strong>Description:</strong></div>
