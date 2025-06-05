@@ -41,13 +41,16 @@ function getEpisodes(filterBy = {}) {
 
   if (filterBy.title) {
     const regex = new RegExp(filterBy.title, "i");
-    episodesToReturn = episodesToReturn.filter((ep) => regex.test(ep.title));
+    episodesToReturn = episodesToReturn.filter((ep) => regex.test(ep.name));
   }
 
-  if (filterBy.minPrice) {
-    episodesToReturn = episodesToReturn.filter(
-      (ep) => ep.price >= filterBy.minPrice
-    );
+  if (filterBy.season) {
+    episodesToReturn = episodesToReturn.filter((ep) => {
+      const match = ep.episode.match(/S(\d{2})E\d{2}/);
+      if (!match) return false;
+      const seasonNum = parseInt(match[1], 10);
+      return seasonNum === filterBy.season;
+    });
   }
 
   return episodesToReturn;

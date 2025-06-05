@@ -31,7 +31,7 @@ function renderEpisodes(filterBy = {}) {
     .map(
       (episode) => `
     <article class="episode-item" data-id="${episode.id}">
-      <img src="${getEpisodeImage(episode.genre)}" alt="${episode.name}">
+      <img src="${getEpisodeImage(episode.episode)}" alt="${episode.name}">
       <h3 class="episode-title">${episode.name}</h3>
       <p class="detail-item"><strong>Episode:</strong> ${episode.episode}</p>
       <div class="episode-actions">
