@@ -118,9 +118,10 @@ body {
 .episode-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  opacity: 90%;
 }
 .episode-item img {
-  width: 100px;
+  width: 235px;
   height: 150px;
   object-fit: cover;
   margin-bottom: 10px;
@@ -215,10 +216,6 @@ body {
 
 .prevPage:hover {
   background-color: hsl(180, 100%, 85%);
-}
-
-img {
-  width: 200px;
 }
 
 @media screen and (min-width: 700px) {
