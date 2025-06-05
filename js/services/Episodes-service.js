@@ -43,10 +43,14 @@ function getEpisodes(filterBy = {}) {
     const regex = new RegExp(filterBy.title, "i");
     episodesToReturn = episodesToReturn.filter((ep) => regex.test(ep.name));
   }
-  if (filterBy.sesone) {
-    episodesToReturn = episodesToReturn.filter(
-      (ep) => ep.episode >= filterBy.sesone
-    );
+
+  if (filterBy.season) {
+    episodesToReturn = episodesToReturn.filter((ep) => {
+      const match = ep.episode.match(/S(\d{2})E\d{2}/);
+      if (!match) return false;
+      const seasonNum = parseInt(match[1], 10);
+      return seasonNum === filterBy.season;
+    });
   }
 
   return episodesToReturn;

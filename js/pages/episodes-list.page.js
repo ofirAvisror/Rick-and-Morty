@@ -81,7 +81,6 @@ function onSetFilter() {
   if (season) filterBy.season = parseInt(season);
   renderEpisodes(filterBy);
 }
-
 function onClearFilter() {
   document.getElementById("filterTitle").value = "";
   document.getElementById("filterSeason").value = "";
