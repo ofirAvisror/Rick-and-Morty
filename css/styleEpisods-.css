@@ -9,7 +9,7 @@ body{
   align-items: center;
   text-align: center;
   flex-direction: column;
-  background: url(../assets/images/second.jpg) repeat center center;
+  background: url(../assets/images/home.jpg) repeat center center;
   color: #333;
 }
 
@@ -108,7 +108,7 @@ body{
     margin-top: 5%;
 }
 
-.book-list-container {
+.episodes-list-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
@@ -236,7 +236,7 @@ body{
 }
 
 @media screen and (min-width: 700px) {
-  .book-list-container {
+  .episodes-list-container {
       grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   }
 }

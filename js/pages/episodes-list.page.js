@@ -65,13 +65,13 @@ function getBookImage(genre) {
   genre = genre ? genre.toLowerCase() : "default";
   switch (genre) {
     case "drama":
-      return "../assets/images/book.jpeg";
+      return "../../assets/images/book.jpeg";
     case "fantasy":
-      return "../assets/images/bookFantasy.png";
+      return "../../assets/images/bookFantasy.png";
     case "mystery":
-      return "../assets/images/bookMystery.png";
+      return "../../assets/images/bookMystery.png";
     default:
-      return "../assets/images/book.jpeg";
+      return "../../assets/images/book.jpeg";
   }
 }
 
@@ -103,7 +103,7 @@ function onToggleFavorite(bookId) {
 }
 
 function onViewDetails(bookId) {
-  window.location.href = `book-details.html?bookId=${bookId}`;
+  window.location.href = `episode-details.html?bookId=${bookId}`;
 }
 
 function onEditBookPage(bookId) {

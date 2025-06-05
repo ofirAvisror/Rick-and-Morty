@@ -1,4 +1,4 @@
-.book-details-container {
+.episode-details-container {
     background-color: rgba(255, 248, 239, 0.95);
     padding: 30px;
     border-radius: 10px;
@@ -10,7 +10,7 @@
     text-align: left;
 }
 
-.book-details-container .book-title-detail {
+.episode-details-container .book-title-detail {
     font-size: 2.2rem;
     color: #333;
     margin-bottom: 10px;
@@ -18,25 +18,25 @@
     padding-bottom: 10px;
 }
 
-.book-details-container .book-author-detail {
+.episode-details-container .book-author-detail {
     font-size: 1.3rem;
     color: #555;
     margin-bottom: 20px;
     font-style: italic;
 }
 
-.book-details-container .detail-item {
+.episode-details-container .detail-item {
     margin-bottom: 12px;
     font-size: 1.1rem;
 }
 
-.book-details-container .detail-item strong {
+.episode-details-container .detail-item strong {
     color: #444;
     min-width: 120px;
     display: inline-block;
 }
 
-.book-details-container .book-description-detail {
+.episode-details-container .book-description-detail {
     margin-top: 20px;
     padding-top: 15px;
     border-top: 1px solid #eee;
@@ -44,7 +44,7 @@
     font-size: 1.05rem;
 }
 
-.book-details-container .book-image-detail {
+.episode-details-container .book-image-detail {
     max-width: 200px;
     height: auto;
     border-radius: 8px;
@@ -54,7 +54,7 @@
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.book-details-actions {
+.episode-details-actions {
     margin-top: 30px;
     padding-top: 20px;
     border-top: 1px solid #ddd;
@@ -64,8 +64,8 @@
     justify-content: flex-start;
 }
 
-.book-details-actions button,
-.book-details-actions .action-link {
+.episode-details-actions button,
+.episode-details-actions .action-link {
     padding: 10px 18px;
     font-size: 1rem;
     border-radius: 5px;
@@ -77,41 +77,41 @@
     min-width: 120px;
 }
 
-.book-details-actions .edit-btn-detail {
+.episode-details-actions .edit-btn-detail {
     background-color: #777;
     color: white;
 }
-.book-details-actions .edit-btn-detail:hover {
+.episode-details-actions .edit-btn-detail:hover {
     background-color: #666;
     transform: scale(1.03);
 }
 
-.book-details-actions .delete-btn-detail {
+.episode-details-actions .delete-btn-detail {
     background-color: #d9534f;
     color: white;
 }
-.book-details-actions .delete-btn-detail:hover {
+.episode-details-actions .delete-btn-detail:hover {
     background-color: #c9302c;
     transform: scale(1.03);
 }
 
-.book-details-actions .favorite-btn-detail {
+.episode-details-actions .favorite-btn-detail {
     background-color: #f0ad4e;
     color: white;
 }
-.book-details-actions .favorite-btn-detail.is-favorite {
+.episode-details-actions .favorite-btn-detail.is-favorite {
     background-color: #5cb85c;
 }
-.book-details-actions .favorite-btn-detail:hover {
+.episode-details-actions .favorite-btn-detail:hover {
     opacity: 0.9;
     transform: scale(1.03);
 }
 
-.book-details-actions .back-btn-detail {
+.episode-details-actions .back-btn-detail {
     background-color: #337ab7;
     color: white;
 }
-.book-details-actions .back-btn-detail:hover {
+.episode-details-actions .back-btn-detail:hover {
     background-color: #286090;
     transform: scale(1.03);
 }

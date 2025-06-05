@@ -9,9 +9,10 @@ body{
   align-items: center;
   text-align: center;
   flex-direction: column;
-  background: url(../assets/images/second.jpg) repeat center center/ cover;
+  background: url(../assets/images/home.jpg) ;
   color: #333;
 }
+
 .container{
   width: 95%;
   max-width: 800px;

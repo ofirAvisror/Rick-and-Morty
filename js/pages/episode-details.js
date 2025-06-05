@@ -49,17 +49,17 @@ function renderBookDetails() {
               book.description || "No description available."
             }</p>
 
-            <div class="book-details-actions">
+            <div class="episode-details-actions">
                 <button class="edit-btn-detail" onclick="window.onEditBook()">Edit</button>
                 <button class="delete-btn-detail" onclick="window.onDeleteCurrentBook()">Delete</button>
                 <button class="favorite-btn-detail ${favoriteButtonClass}" onclick="window.onToggleCurrentFavorite()">${favoriteButtonText}</button>
-                <a href="book-list.html" class="action-link back-btn-detail">Back to Library</a>
+                <a href="episodes-list.html" class="action-link back-btn-detail">Back to Library</a>
             </div>
         `;
   } else {
     document.title = "Book Not Found";
     elBookDetails.innerHTML =
-      '<p class="error-message">Book not found. It might have been deleted or the ID is incorrect.</p>  <a href="book-list.html" class="action-link back-btn-detail" style="display:block; text-align:center; margin-top:20px;">Back to Library</a>';
+      '<p class="error-message">Book not found. It might have been deleted or the ID is incorrect.</p>  <a href="episodes-list.html" class="action-link back-btn-detail" style="display:block; text-align:center; margin-top:20px;">Back to Library</a>';
   }
 }
 
@@ -87,7 +87,7 @@ function onDeleteCurrentBook() {
   if (currentBookId && confirm("Are you sure you want to delete this book?")) {
     bookService.deleteBook(currentBookId);
     alert("Book deleted.");
-    window.location.href = "book-list.html";
+    window.location.href = "episodes-list.html";
   }
 }
 
