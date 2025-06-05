@@ -1,0 +1,135 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
+}
+body{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  background: url(../assets/images/second.jpg) repeat center center/ cover;
+  color: #333;
+}
+.container{
+  width: 95%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.main-header {
+    width: 100%;
+    background-color: rgba(255, 241, 209, 0.9);
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.link-area{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.link-area a{
+    color: rgb(100, 100, 220);
+    padding: 8px 12px;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+.link-area a:hover{
+  background-color: rgb(204, 229, 238);
+  transform: scale(1.05);
+}
+
+.header-content {
+    padding: 20px;
+    margin-top: 20px;
+    background-color: rgba(250, 248, 195, 0.85);
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.header-content h1{
+  padding: 12px;
+  color: #e579b1;
+}
+.header-content h4{
+  color: #555;
+}
+
+.about-section {
+    margin-top: 20px;
+}
+
+.main-content-block {
+    width: 100%;
+    background-color: rgba(255, 248, 239, 0.9);
+    border-radius: 10px;
+    padding: 15px 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    margin-top: 5px;
+    text-align: left;
+}
+.main-content-block .title{
+  font-size: 1.5rem;
+  padding-bottom: 10px;
+  color: rgb(255, 184, 78);
+  border-bottom: 1px solid #eee;
+  margin-bottom: 10px;
+}
+.main-content-block .data{
+    font-size:1rem;
+    color: rgb(0, 0, 0);
+    margin-top: 10px;
+}
+
+.navigation-link-area {
+    padding: 20px 0;
+}
+
+a.to-library-link{
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  color: #fff;
+  background-color: #e579b1;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+a.to-library-link:hover{
+  background-color: #d16aa1;
+  transform: scale(1.05);
+}
+
+.main-content-block .data p{
+  padding-bottom:8px;
+  line-height: 1.6;
+}
+
+.value1{
+  color:gold;
+  font-weight: bold;
+}
+.value2{
+  color:palevioletred;
+  font-weight: bold;
+}
+.value3{
+  color:blueviolet;
+  font-weight: bold;
+}
+.value4{
+  color:rgb(0, 180, 0);
+  font-weight: bold;
+}
+.value5{
+  color:deepskyblue;
+  font-weight: bold;
+}

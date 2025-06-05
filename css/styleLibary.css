@@ -1,0 +1,242 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
+}
+body{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  background: url(../assets/images/second.jpg) repeat center center;
+  color: #333;
+}
+
+.container{
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.main-header {
+    width: 100%;
+    background-color: rgba(255, 241, 209, 0.9);
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.link-area{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.link-area a{
+    color: rgb(100, 100, 220);
+    padding: 8px 12px;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+.link-area a:hover{
+  background-color: rgb(204, 229, 238);
+  transform: scale(1.05);
+}
+
+.header{
+    font-size: 1.2rem;
+    color: rgb(0, 0, 0);
+    padding: 15px;
+    width: 100%;
+    margin: 20px 0;
+    font-weight: bold;
+    background-color: rgba(247, 205, 158, 0.85);
+    border-radius: 8px;
+    
+}
+
+.filter-controls {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: rgba(255, 248, 239, 0.85);
+    border-radius: 8px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.filter-controls input[type="text"],
+.filter-controls input[type="number"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.filter-controls button {
+    padding: 8px 15px;
+    background-color: #262626;
+    color: white;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.filter-controls button:hover{
+  background-color: #444;
+  transform: scale(1.05);
+}
+.filter-controls button:active{
+  background-color: #555;
+}
+
+.main-content-libary{
+    width: 100%;
+    background-color: rgba(255, 248, 239, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-top: 5%;
+}
+
+.book-list-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.book-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 15px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.book-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.book-item img{
+  width: 100px;
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+.book-item .book-title{
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+.book-item .book-author{
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 5px;
+}
+.book-item .book-genre{
+  font-size: 0.8rem;
+  color: #777;
+  background-color: #f0f0f0;
+  padding: 2px 6px;
+  border-radius: 3px;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+.book-item .book-price{
+  font-size: 1rem;
+  color: #008000;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.book-item .book-year{
+  font-size: 0.8rem;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.book-actions button{
+    background-color: #555;
+    color: white;
+    font-size: 0.8rem;
+    padding: 6px 10px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.book-actions button.delete-btn {
+    background-color: #d9534f;
+}
+.book-actions button.delete-btn:hover {
+    background-color: #c9302c;
+}
+.book-actions button.favorite-btn {
+    background-color: #f0ad4e;
+}
+.book-actions button.favorite-btn.is-favorite {
+    background-color: #5cb85c;
+}
+.book-actions button.favorite-btn:hover {
+    opacity: 0.8;
+}
+.book-actions button.details-btn {
+    background-color: #337ab7;
+}
+.book-actions button.details-btn:hover {
+    background-color: #286090;
+}
+.book-actions button.edit-btn {
+    background-color: #777;
+}
+.book-actions button.edit-btn:hover {
+    background-color: #666;
+}
+
+.add-book-fixed-button-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1001;
+}
+
+.add-book-fixed-button {
+  background-color: #e579b1;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-size: 1rem;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.add-book-fixed-button:hover {
+  background-color: #d16aa1;
+  transform: scale(1.05);
+}
+
+@media screen and (min-width: 700px) {
+  .book-list-container {
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+}

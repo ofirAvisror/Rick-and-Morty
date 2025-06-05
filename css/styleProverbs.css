@@ -1,0 +1,135 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
+}
+body{
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  flex-direction: column;
+  background: url(../assets/images/second.jpg) no-repeat center center/ cover;
+  color: #333;
+}
+.container{
+  width: 90%;
+  max-width: 700px;
+  margin: 20px auto;
+}
+
+.main-header {
+    width: 100%;
+    background-color: rgba(255, 241, 209, 0.9);
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.link-area{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+.link-area a{
+    color: rgb(100, 100, 220);
+    padding: 8px 12px;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+.link-area a:hover{
+  background-color: rgb(204, 229, 238);
+  transform: scale(1.05);
+}
+
+.proverbs-main-content {
+    margin-top: 30px;
+}
+
+.header-proverbs{
+    font-size: 1.2rem;
+    border:solid 2px white;
+    color: white;
+    background-color: black;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    margin: 20px auto;
+}
+.content-block-proverbs{
+    width: 100%;
+    min-height: 250px;
+    background-color: rgba(255, 248, 239, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-top: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.text-area-proverb{
+  font-size: 1.4rem;
+  line-height: 1.6;
+  padding: 15px;
+  font-style: italic;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.person-proverb{
+    font-size:1.3rem;
+    color: brown;
+    text-transform: uppercase;
+    margin-top: 20px;
+    font-weight: bold;
+}
+.button-area-proverb button{
+    background-color: #262626;
+    color: white;
+    font-size: 1.1rem;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+.button-area-proverb button:active{
+  background-color: rgb(204, 229, 238);
+  color: #262626;
+}
+.button-area-proverb button:hover{
+  background-color: #444;
+  transform: scale(1.05);
+}
+
+.add-button-area-proverb {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.add-proverb-btn{
+  background-color: #e579b1;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+.add-proverb-btn:hover{
+  background-color: #d16aa1;
+  transform: scale(1.05);
+}
+
