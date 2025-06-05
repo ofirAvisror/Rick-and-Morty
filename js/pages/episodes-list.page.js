@@ -31,7 +31,9 @@ function renderEpisodes(filterBy = {}) {
     .map(
       (episode) => `
     <article class="episode-item" data-id="${episode.id}">
-      <img src="${getEpisodeImage(episode.episode)}" alt="${episode.name}">
+      <img src="${getEpisodeImage(episode.episode)}" class="episodeImg" alt="${
+        episode.name
+      }">
       <h3 class="episode-title">${episode.name}</h3>
       <p class="detail-item"><strong>Episode:</strong> ${episode.episode}</p>
       <div class="episode-actions">
@@ -59,15 +61,15 @@ function getEpisodeImage(episodeCode) {
   const season = seasonMatch[1];
   switch (season) {
     case "01":
-      return "../../assets/images/season1.png";
+      return "../../assets/images/season1.jpg";
     case "02":
-      return "../../assets/images/season2.png";
+      return "../../assets/images/season2.jpg";
     case "03":
-      return "../../assets/images/season3.png";
+      return "../../assets/images/season3.jpg";
     case "04":
-      return "../../assets/images/season4.png";
+      return "../../assets/images/season4.jpg";
     case "05":
-      return "../../assets/images/season4.png";
+      return "../../assets/images/season5.jpg";
     default:
       return "../../assets/images/book.jpeg";
   }
