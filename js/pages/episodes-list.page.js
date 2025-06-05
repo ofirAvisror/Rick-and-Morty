@@ -1,10 +1,10 @@
-import { bookService } from "../services/books.service.js";
+import { episodeService } from "../services/Episodes-service.js";
 import { ELEMENT_ID } from "../shared/constants.js";
 
-document.addEventListener("DOMContentLoaded", initBookList);
+document.addEventListener("DOMContentLoaded", initEpisodeList);
 
-function initBookList() {
-  renderBooks();
+function initEpisodeList() {
+  renderEpisodes();
   document
     .getElementById("applyFilterBtn")
     ?.addEventListener("click", onSetFilter);
@@ -13,55 +13,51 @@ function initBookList() {
     ?.addEventListener("click", onClearFilter);
 }
 
-function renderBooks(filterBy = {}) {
-  const books = bookService.getBooks(filterBy);
-  const elBookList = document.getElementById(ELEMENT_ID.BOOK_LIST);
+function renderEpisodes(filterBy = {}) {
+  const episodes = episodeService.getEpisodes(filterBy);
+  const elEpisodeList = document.getElementById(ELEMENT_ID.EPISODE_LIST);
 
-  if (!elBookList) {
+  if (!elEpisodeList) {
     return;
   }
 
-  if (!books || books.length === 0) {
-    elBookList.innerHTML =
-      "<p>No books found. Try adjusting your filters or add some books!</p>";
+  if (!episodes || episodes.length === 0) {
+    elEpisodeList.innerHTML =
+      "<p>No episodes found. Try adjusting your filters or add some episodes!</p>";
     return;
   }
 
-  const strHTMLs = books
+  const strHTMLs = episodes
     .map(
-      (book) => `
-        <article class="book-item" data-id="${book.id}">
-            <img src="${getBookImage(book.genre)}" alt="${book.title}">
-            <h3 class="book-title">${book.title}</h3>
-            <p class="book-author">By: ${book.author}</p>
-            <p class="book-genre">Genre: ${book.genre}</p>
-            <p class="book-year">Published: ${book.year}</p>
-            <p class="book-price">$${book.price.toFixed(2)}</p>
-            <div class="book-actions">
+      (episode) => `
+        <article class="episode-item" data-id="${episode.id}">
+            <img src="${getEpisodeImage(episode.genre)}" alt="${episode.title}">
+            <h3 class="episode-title">${episode.title}</h3>
+            <p class="episode-author">By: ${episode.author}</p>
+            <p class="episode-genre">Genre: ${episode.genre}</p>
+            <p class="episode-year">Published: ${episode.year}</p>
+            <p class="episode-price">$${episode.price.toFixed(2)}</p>
+            <div class="episode-actions">
                 <button class="details-btn" onclick="window.onViewDetails('${
-                  book.id
+                  episode.id
                 }')">Details</button>
-                <button class="edit-btn" onclick="window.onEditBookPage('${
-                  book.id
-                }')">Edit</button>
+                
                 <button class="favorite-btn ${
-                  book.favorite ? "is-favorite" : ""
-                }" onclick="window.onToggleFavorite('${book.id}')">
-                    ${book.favorite ? "Unfavorite" : "Favorite"}
+                  episode.favorite ? "is-favorite" : ""
+                }" onclick="window.onToggleFavorite('${episode.id}')">
+                    ${episode.favorite ? "Unfavorite" : "Favorite"}
                 </button>
-                <button class="delete-btn" onclick="window.onDeleteBook('${
-                  book.id
-                }')">Delete</button>
+                
             </div>
         </article>
     `
     )
     .join("");
 
-  elBookList.innerHTML = strHTMLs;
+  elEpisodeList.innerHTML = strHTMLs;
 }
 
-function getBookImage(genre) {
+function getEpisodeImage(genre) {
   genre = genre ? genre.toLowerCase() : "default";
   switch (genre) {
     case "drama":
@@ -81,36 +77,36 @@ function onSetFilter() {
   const filterBy = {};
   if (title) filterBy.title = title;
   if (minPrice) filterBy.minPrice = parseFloat(minPrice);
-  renderBooks(filterBy);
+  renderEpisodes(filterBy);
 }
 
 function onClearFilter() {
   document.getElementById("filterTitle").value = "";
   document.getElementById("filterMinPrice").value = "";
-  renderBooks();
+  renderEpisodes();
 }
 
-function onDeleteBook(bookId) {
-  if (confirm("Are you sure you want to delete this book?")) {
-    bookService.deleteBook(bookId);
-    renderBooks();
+function onDeleteEpisode(episodeId) {
+  if (confirm("Are you sure you want to delete this episode?")) {
+    episodeService.deleteEpisode(episodeId);
+    renderEpisodes();
   }
 }
 
-function onToggleFavorite(bookId) {
-  bookService.toggleFavorite(bookId);
-  renderBooks();
+function onToggleFavorite(episodeId) {
+  episodeService.toggleFavorite(episodeId);
+  renderEpisodes();
 }
 
-function onViewDetails(bookId) {
-  window.location.href = `episode-details.html?bookId=${bookId}`;
+function onViewDetails(episodeId) {
+  window.location.href = `episode-details.html?episodeId=${episodeId}`;
 }
 
-function onEditBookPage(bookId) {
-  window.location.href = `edit-book.html?bookId=${bookId}`;
+function onEditEpisodePage(episodeId) {
+  window.location.href = `edit-episode.html?episodeId=${episodeId}`;
 }
 
-window.onDeleteBook = onDeleteBook;
+window.onDeleteEpisode = onDeleteEpisode;
 window.onToggleFavorite = onToggleFavorite;
 window.onViewDetails = onViewDetails;
-window.onEditBookPage = onEditBookPage;
+window.onEditEpisodePage = onEditEpisodePage;

@@ -1,103 +1,108 @@
-import { bookService } from "../services/books.service.js";
+import { episodeService } from "../services/Episodes-service.js";
 import { ELEMENT_ID } from "../shared/constants.js";
 
-document.addEventListener("DOMContentLoaded", initBookDetails);
+document.addEventListener("DOMContentLoaded", initEpisodeDetails);
 
-let currentBookId = null;
+let currentEpisodeId = null;
 
-function initBookDetails() {
+function initEpisodeDetails() {
   const params = new URLSearchParams(window.location.search);
-  currentBookId = params.get("bookId");
+  currentEpisodeId = params.get("episodeId");
 
-  if (currentBookId) {
-    renderBookDetails();
+  if (currentEpisodeId) {
+    renderEpisodeDetails();
   } else {
-    const elBookDetails = document.getElementById(ELEMENT_ID.BOOK_DETAILS);
-    if (elBookDetails) {
-      elBookDetails.innerHTML =
-        '<p class="error-message">No book ID provided. Please select a book from the library.</p>';
+    const elDetails = document.getElementById(ELEMENT_ID.EPISODE_DETAILS);
+    if (elDetails) {
+      elDetails.innerHTML =
+        '<p class="error-message">No episode ID provided. Please select an episode from the list.</p>';
     }
   }
 }
 
-function renderBookDetails() {
-  const elBookDetails = document.getElementById(ELEMENT_ID.BOOK_DETAILS);
-  if (!elBookDetails) return;
+function renderEpisodeDetails() {
+  const elDetails = document.getElementById(ELEMENT_ID.EPISODE_DETAILS);
+  if (!elDetails) return;
 
-  elBookDetails.innerHTML =
-    '<p class="loading-message">Loading book details...</p>';
-  const book = bookService.getBookById(currentBookId);
+  elDetails.innerHTML =
+    '<p class="loading-message">Loading episode details...</p>';
+  const episode = episodeService.getEpisodeById(currentEpisodeId);
 
-  if (book) {
-    document.title = book.title + " - Details";
-    const favoriteButtonText = book.favorite ? "Unfavorite" : "Favorite";
-    const favoriteButtonClass = book.favorite ? "is-favorite" : "";
+  if (episode) {
+    document.title = episode.title + " - Details";
+    const favoriteButtonText = episode.favorite ? "Unfavorite" : "Favorite";
+    const favoriteButtonClass = episode.favorite ? "is-favorite" : "";
 
-    elBookDetails.innerHTML = `
-            <img src="${getBookImage(book.genre)}" alt="${
-      book.title
-    }" class="book-image-detail">
-            <h2 class="book-title-detail">${book.title}</h2>
-            <p class="book-author-detail">By ${book.author}</p>
-            <div class="detail-item"><strong>Genre:</strong> ${book.genre}</div>
-            <div class="detail-item"><strong>Year:</strong> ${book.year}</div>
-            <div class="detail-item"><strong>Price:</strong> $${book.price.toFixed(
+    elDetails.innerHTML = `
+            <img src="${getEpisodeImage(episode.genre)}" alt="${
+      episode.title
+    }" class="episode-image-detail">
+            <h2 class="episode-title-detail">${episode.title}</h2>
+            <p class="episode-author-detail">By ${episode.author}</p>
+            <div class="detail-item"><strong>Genre:</strong> ${
+              episode.genre
+            }</div>
+            <div class="detail-item"><strong>Year:</strong> ${
+              episode.year
+            }</div>
+            <div class="detail-item"><strong>Price:</strong> $${episode.price.toFixed(
               2
             )}</div>
             <div class="detail-item"><strong>Description:</strong></div>
-            <p class="book-description-detail">${
-              book.description || "No description available."
+            <p class="episode-description-detail">${
+              episode.description || "No description available."
             }</p>
 
             <div class="episode-details-actions">
-                <button class="edit-btn-detail" onclick="window.onEditBook()">Edit</button>
-                <button class="delete-btn-detail" onclick="window.onDeleteCurrentBook()">Delete</button>
                 <button class="favorite-btn-detail ${favoriteButtonClass}" onclick="window.onToggleCurrentFavorite()">${favoriteButtonText}</button>
-                <a href="episodes-list.html" class="action-link back-btn-detail">Back to Library</a>
+                <a href="episodes-list.html" class="action-link back-btn-detail">Back to episodes</a>
             </div>
         `;
   } else {
-    document.title = "Book Not Found";
-    elBookDetails.innerHTML =
-      '<p class="error-message">Book not found. It might have been deleted or the ID is incorrect.</p>  <a href="episodes-list.html" class="action-link back-btn-detail" style="display:block; text-align:center; margin-top:20px;">Back to Library</a>';
+    document.title = "Episode Not Found";
+    elDetails.innerHTML =
+      '<p class="error-message">Episode not found. It might have been deleted or the ID is incorrect.</p>  <a href="episodes-list.html" class="action-link back-btn-detail" style="display:block; text-align:center; margin-top:20px;">Back to Episodes</a>';
   }
 }
 
-function getBookImage(genre) {
+function getEpisodeImage(genre) {
   genre = genre ? genre.toLowerCase() : "default";
   switch (genre) {
     case "drama":
-      return "../assets/images/book.jpeg";
+      return "../../assets/images/book.jpeg";
     case "fantasy":
-      return "../assets/images/bookFantasy.png";
+      return "../../assets/images/bookFantasy.png";
     case "mystery":
-      return "../assets/images/bookMystery.png";
+      return "../../assets/images/bookMystery.png";
     default:
-      return "../assets/images/book.jpeg";
+      return "../../assets/images/book.jpeg";
   }
 }
 
-function onEditBook() {
-  if (currentBookId) {
-    window.location.href = `edit-book.html?bookId=${currentBookId}`;
+function onEditEpisode() {
+  if (currentEpisodeId) {
+    window.location.href = `edit-episode.html?episodeId=${currentEpisodeId}`;
   }
 }
 
-function onDeleteCurrentBook() {
-  if (currentBookId && confirm("Are you sure you want to delete this book?")) {
-    bookService.deleteBook(currentBookId);
-    alert("Book deleted.");
+function onDeleteCurrentEpisode() {
+  if (
+    currentEpisodeId &&
+    confirm("Are you sure you want to delete this episode?")
+  ) {
+    episodeService.deleteEpisode(currentEpisodeId);
+    alert("Episode deleted.");
     window.location.href = "episodes-list.html";
   }
 }
 
 function onToggleCurrentFavorite() {
-  if (currentBookId) {
-    bookService.toggleFavorite(currentBookId);
-    renderBookDetails();
+  if (currentEpisodeId) {
+    episodeService.toggleFavorite(currentEpisodeId);
+    renderEpisodeDetails();
   }
 }
 
-window.onEditBook = onEditBook;
-window.onDeleteCurrentBook = onDeleteCurrentBook;
+window.onEditEpisode = onEditEpisode;
+window.onDeleteCurrentEpisode = onDeleteCurrentEpisode;
 window.onToggleCurrentFavorite = onToggleCurrentFavorite;

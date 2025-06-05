@@ -1,6 +1,6 @@
 export const ELEMENT_ID = {
-  BOOK_LIST: "bookList",
-  BOOK_DETAILS: "bookDetails",
-  CREATE_BOOK_FORM: "createBookForm",
-  EDIT_BOOK_FORM: "editBookForm",
+  EPISODE_LIST: "EpisodesList",
+  EPISODE_DETAILS: "episodeDetails",
+  CREATE_EPISODE_FORM: "createEpisodeForm",
+  EDIT_EPISODE_FORM: "editEpisodeForm",
 };
