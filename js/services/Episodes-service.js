@@ -1,4 +1,5 @@
 let gEpisodes = [];
+let currentPage = 1;
 
 export const episodeService = {
   loadEpisodes,
@@ -6,14 +7,8 @@ export const episodeService = {
   getEpisodeById,
   toggleFavorite,
 };
-
-function loadEpisodes(callback) {
-  if (gEpisodes.length > 0) {
-    callback();
-    return;
-  }
-
-  fetch("https://rickandmortyapi.com/api/episode")
+function loadEpisodes(callback, page = 1) {
+  fetch(`https://rickandmortyapi.com/api/episode?page=${page}`)
     .then((res) => {
       if (!res.ok) throw new Error("Failed to fetch episodes");
       return res.json();
@@ -28,11 +23,11 @@ function loadEpisodes(callback) {
         episode: ep.episode,
         characters: ep.characters,
       }));
-      callback();
+      if (callback) callback();
     })
     .catch((err) => {
       console.error("Error loading episodes:", err);
-      callback();
+      if (callback) callback();
     });
 }
 
