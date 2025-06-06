@@ -1,8 +1,20 @@
 import { episodeService } from "../services/Episodes-service.js";
 import { ELEMENT_ID } from "../shared/constants.js";
 import { getEpisodeImage } from "../services/utils.service.js";
+let currentPage = 1;
 
 document.addEventListener("DOMContentLoaded", initEpisodeList);
+document.querySelector(".nextPage").addEventListener("click", () => {
+  currentPage++;
+  episodeService.loadEpisodes(renderEpisodes, currentPage);
+});
+
+document.querySelector(".prevPage").addEventListener("click", () => {
+  if (currentPage > 1) {
+    currentPage--;
+    episodeService.loadEpisodes(renderEpisodes, currentPage);
+  }
+});
 
 function initEpisodeList() {
   episodeService.loadEpisodes(() => {
