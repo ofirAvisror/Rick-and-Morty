@@ -202,3 +202,10 @@ body {
   font-size: 1rem;
   color: #444;
 }
+.character-item:hover {
+  background-image: url("../assets/images/portal1.jpeg");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  transition: background 0.3s ease;
+}
