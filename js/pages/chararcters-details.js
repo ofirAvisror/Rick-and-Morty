@@ -2,6 +2,7 @@ import { getIdFromUrl, getEpisodeImage } from "../services/utils.service.js";
 
 const params = new URLSearchParams(window.location.search);
 const characterId = params.get("characterId");
+const pageNumber = +params.get("page") || 1;
 
 loadCharacterDetails(characterId);
 
@@ -56,14 +57,20 @@ function renderCharacterDetails(character) {
       }</div>
       <div class="detail-item"><strong>Origin:</strong> ${
         originId
-          ? `<a href="/html/locations/location-details.html?locationId=${originId}">${character.origin.name}</a>`
+          ? `<a href="/html/locations/locations-details.html?locationId=${originId}">${character.origin.name}</a>`
           : character.origin.name
       }</div>
       <div class="detail-item"><strong>Current Location:</strong> ${
         locationId
-          ? `<a href="/html/locations/location-details.html?locationId=${locationId}">${character.location.name}</a>`
+          ? `<a href="/html/locations/locations-details.html?locationId=${locationId}">${character.location.name}</a>`
           : character.location.name
       }</div>
+      <div class="episode-details-actions">
+        <a href="/html/characters/characters-list.html?page=${pageNumber}" class="action-link back-btn-detail">
+               Back to page ${pageNumber}
+        </a>
+
+      </div>
       <h3 class="character-title">Episodes:</h3>
       <div class="character-list">${episodesHTML}</div>
     `;

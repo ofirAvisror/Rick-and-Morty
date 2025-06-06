@@ -18,6 +18,7 @@ body {
   margin: 20px auto;
 }
 .main-header {
+  
   width: 100%;
   position: sticky;
   top: 0;
@@ -78,6 +79,16 @@ body {
   font-weight: bold;
   background-color: rgba(247, 205, 158, 0.85);
   border-radius: 8px;
+}
+.header-ep {
+  font-size: 1.2rem;
+  color: rgb(0, 0, 0);
+  padding: 15px;
+  width: 100%;
+  margin: 20px 0;
+  font-weight: bold;
+  border-radius: 8px;
+  margin-top: 80px;
 }
 .filter-controls {
   margin-bottom: 20px;
