@@ -4,48 +4,64 @@ import { getEpisodeImage } from "../services/utils.service.js";
 
 let currentPage = 1;
 
+const elFilterTitle = document.getElementById("filterTitle");
+const elFilterSeason = document.getElementById("filterSeason");
+const elNextPageBtn = document.querySelector(".nextPage");
+const elPrevPageBtn = document.querySelector(".prevPage");
+
 document.addEventListener("DOMContentLoaded", () => {
   const params = new URLSearchParams(window.location.search);
   const pageFromURL = +params.get("page");
   if (pageFromURL) currentPage = pageFromURL;
 
   initEpisodeList();
-});
 
-document.querySelector(".nextPage").addEventListener("click", () => {
-  if (currentPage < 3) {
-    currentPage++;
-    episodeService.loadEpisodes(renderEpisodes, currentPage);
-  }
-});
+  elFilterTitle.addEventListener("input", renderEpisodes);
+  elFilterSeason.addEventListener("input", renderEpisodes);
 
-document.querySelector(".prevPage").addEventListener("click", () => {
-  if (currentPage > 1) {
-    currentPage--;
-    episodeService.loadEpisodes(renderEpisodes, currentPage);
-  }
+  elNextPageBtn.addEventListener("click", () => {
+    if (currentPage < 3) {
+      currentPage++;
+      episodeService.loadEpisodes(renderEpisodes, currentPage);
+    }
+  });
+
+  elPrevPageBtn.addEventListener("click", () => {
+    if (currentPage > 1) {
+      currentPage--;
+      episodeService.loadEpisodes(renderEpisodes, currentPage);
+    }
+  });
+
+  document
+    .getElementById("applyFilterBtn")
+    ?.addEventListener("click", onSetFilter);
+  document
+    .getElementById("clearFilterBtn")
+    ?.addEventListener("click", onClearFilter);
 });
 
 function initEpisodeList() {
   episodeService.loadEpisodes(() => {
     renderEpisodes();
-    document
-      .getElementById("applyFilterBtn")
-      ?.addEventListener("click", onSetFilter);
-    document
-      .getElementById("clearFilterBtn")
-      ?.addEventListener("click", onClearFilter);
   }, currentPage);
 }
 
-function renderEpisodes(filterBy = {}) {
+function renderEpisodes() {
+  const title = elFilterTitle.value;
+  const season = elFilterSeason.value;
+
+  const filterBy = {};
+  if (title) filterBy.title = title;
+  if (season) filterBy.season = parseInt(season);
+
   const episodes = episodeService.getEpisodes(filterBy);
   const elEpisodeList = document.getElementById(ELEMENT_ID.EPISODE_LIST);
   if (!elEpisodeList) return;
 
   if (!episodes || episodes.length === 0) {
     elEpisodeList.innerHTML =
-      "<p>No episodes found. Try adjusting your filters or add some episodes!</p>";
+      "<p>No episodes found. Try adjusting your filters.</p>";
     return;
   }
 
@@ -75,17 +91,12 @@ function renderEpisodes(filterBy = {}) {
 }
 
 function onSetFilter() {
-  const title = document.getElementById("filterTitle").value;
-  const season = document.getElementById("filterSeason").value;
-  const filterBy = {};
-  if (title) filterBy.title = title;
-  if (season) filterBy.season = parseInt(season);
-  renderEpisodes(filterBy);
+  renderEpisodes();
 }
 
 function onClearFilter() {
-  document.getElementById("filterTitle").value = "";
-  document.getElementById("filterSeason").value = "";
+  elFilterTitle.value = "";
+  elFilterSeason.value = "";
   renderEpisodes();
 }
 

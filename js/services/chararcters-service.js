@@ -37,7 +37,7 @@ function loadCharacter(callback, page = 1) {
 }
 
 function getCharacters(filterBy = {}) {
-  let charactersToReturn = [...gCharacters];
+  let charactersToReturn = [...gcharacters];
 
   if (filterBy.title) {
     const regex = new RegExp(filterBy.title, "i");
@@ -57,7 +57,7 @@ function getCharacters(filterBy = {}) {
 }
 
 function getCharactersById(characterId) {
-  return gCharacters.find((ch) => ch.id === characterId);
+  return gcharacters.find((ch) => ch.id === characterId);
 }
 
 function toggleFavorite(characterId) {
@@ -68,6 +68,7 @@ function toggleFavorite(characterId) {
   }
   return null;
 }
+
 function getCharactersByUrls(charUrls) {
   const ids = charUrls.map((url) => url.split("/").pop()).join(",");
   return fetch(`https://rickandmortyapi.com/api/character/${ids}`)

@@ -15,7 +15,9 @@ export function getEpisodeImage(episodeCode) {
       return "../../assets/images/season5.jpg";
   }
 }
+
 export function getIdFromUrl(url) {
+  if (!url) return null;
   const parts = url.split("/");
   return parts[parts.length - 1];
 }

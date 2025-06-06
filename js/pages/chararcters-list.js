@@ -8,7 +8,7 @@ const elNextPageBtn = document.querySelector(".nextPage");
 const elFilterName = document.getElementById("filterTitle");
 
 window.addEventListener("DOMContentLoaded", () => {
-  characterService.loadCharacters(() => {
+  characterService.loadCharacter(() => {
     renderList();
   }, currentPage);
 
@@ -17,13 +17,13 @@ window.addEventListener("DOMContentLoaded", () => {
   elPrevPageBtn.addEventListener("click", () => {
     if (currentPage > 1) {
       currentPage--;
-      characterService.loadCharacters(renderList, currentPage);
+      characterService.loadCharacter(renderList, currentPage);
     }
   });
 
   elNextPageBtn.addEventListener("click", () => {
     currentPage++;
-    characterService.loadCharacters(renderList, currentPage);
+    characterService.loadCharacter(renderList, currentPage);
   });
 });
 
