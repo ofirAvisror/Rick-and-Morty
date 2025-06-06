@@ -43,7 +43,6 @@ function renderLocationDetails() {
       });
   }
 }
-
 function renderLocation(location) {
   const elDetails = document.getElementById("locationDetails");
   document.title = location.name + " - Location Details";
@@ -67,13 +66,15 @@ function renderLocation(location) {
     .getCharactersByUrls(location.residents)
     .then((characters) => {
       const charactersHtml = characters
-        .map(
-          (ch) => `
-      <article class="character-item">
-        <img src="${ch.image}" alt="${ch.name}">
-        <h4>${ch.name}</h4>
-      </article>`
-        )
+        .map((ch) => {
+          return `
+            <a href="/html/characters/characters-details.html?characterId=${ch.id}&page=1">
+              <article class="character-item">
+                <img src="${ch.image}" alt="${ch.name}">
+                <h4>${ch.name}</h4>
+              </article>
+            </a>`;
+        })
         .join("");
 
       elDetails.innerHTML += `<div class="character-list">${charactersHtml}</div>`;
