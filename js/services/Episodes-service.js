@@ -1,5 +1,4 @@
 let gEpisodes = [];
-let currentPage = 1;
 
 export const episodeService = {
   loadEpisodes,

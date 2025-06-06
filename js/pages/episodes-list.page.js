@@ -1,12 +1,22 @@
 import { episodeService } from "../services/Episodes-service.js";
 import { ELEMENT_ID } from "../shared/constants.js";
 import { getEpisodeImage } from "../services/utils.service.js";
+
 let currentPage = 1;
 
-document.addEventListener("DOMContentLoaded", initEpisodeList);
+document.addEventListener("DOMContentLoaded", () => {
+  const params = new URLSearchParams(window.location.search);
+  const pageFromURL = +params.get("page");
+  if (pageFromURL) currentPage = pageFromURL;
+
+  initEpisodeList();
+});
+
 document.querySelector(".nextPage").addEventListener("click", () => {
-  currentPage++;
-  episodeService.loadEpisodes(renderEpisodes, currentPage);
+  if (currentPage < 3) {
+    currentPage++;
+    episodeService.loadEpisodes(renderEpisodes, currentPage);
+  }
 });
 
 document.querySelector(".prevPage").addEventListener("click", () => {
@@ -25,7 +35,7 @@ function initEpisodeList() {
     document
       .getElementById("clearFilterBtn")
       ?.addEventListener("click", onClearFilter);
-  });
+  }, currentPage);
 }
 
 function renderEpisodes(filterBy = {}) {
@@ -79,27 +89,14 @@ function onClearFilter() {
   renderEpisodes();
 }
 
-function onDeleteEpisode(episodeId) {
-  if (confirm("Are you sure you want to delete this episode?")) {
-    episodeService.deleteEpisode(episodeId);
-    renderEpisodes();
-  }
-}
-
 function onToggleFavorite(episodeId) {
   episodeService.toggleFavorite(episodeId);
   renderEpisodes();
 }
 
 function onViewDetails(episodeId) {
-  window.location.href = `episode-details.html?episodeId=${episodeId}`;
+  window.location.href = `episode-details.html?episodeId=${episodeId}&page=${currentPage}`;
 }
 
-function onEditEpisodePage(episodeId) {
-  window.location.href = `edit-episode.html?episodeId=${episodeId}`;
-}
-
-window.onDeleteEpisode = onDeleteEpisode;
 window.onToggleFavorite = onToggleFavorite;
 window.onViewDetails = onViewDetails;
-window.onEditEpisodePage = onEditEpisodePage;

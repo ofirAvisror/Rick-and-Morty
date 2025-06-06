@@ -126,7 +126,7 @@
 }
 
 body {
-  background: url(../assets/images/second.jpg) repeat center center/ cover;
+  background: url(../assets/images/fuck.jpeg) repeat center center/ cover;
   color: #333;
 }
 .main-header {
@@ -159,4 +159,46 @@ body {
   width: 90%;
   max-width: 900px;
   margin: 20px auto;
+}
+.character-title {
+  margin-top: 30px;
+  font-size: 1.8rem;
+  color: #333;
+  border-bottom: 2px solid #e579b1;
+  padding-bottom: 10px;
+}
+
+.character-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.character-item {
+  background-color: #fff7f1;
+  border: 1px solid #f5d0d0;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 15px;
+  width: 140px;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.character-item:hover {
+  transform: scale(1.05);
+}
+
+.character-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.character-item h4 {
+  font-size: 1rem;
+  color: #444;
 }
