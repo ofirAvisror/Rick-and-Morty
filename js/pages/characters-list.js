@@ -1,4 +1,4 @@
-import { characterService } from "../services/chararcters-service.js";
+import { characterService } from "../services/characters-service.js";
 
 let currentPage = 1;
 
@@ -8,6 +8,10 @@ const elNextPageBtn = document.querySelector(".nextPage");
 const elFilterName = document.getElementById("filterTitle");
 
 window.addEventListener("DOMContentLoaded", () => {
+  const params = new URLSearchParams(window.location.search);
+  const pageFromURL = +params.get("page");
+  if (pageFromURL) currentPage = pageFromURL;
+
   characterService.loadCharacter(() => {
     renderList();
   }, currentPage);
@@ -37,16 +41,16 @@ function renderList() {
     .map((ch) => {
       const favoriteClass = ch.favorite ? "is-favorite" : "";
       return `
-        <div class="episode-item">
-          <img src="${ch.image}" alt="${ch.name}">
-          <h3 class="episode-title">${ch.name}</h3>
-          <p class="episode-author">${ch.species}</p>
-          <p class="episode-genre">${ch.gender}</p>
-          <div class="episode-actions">
-            <button class="details-btn" onclick="window.location='chararcters-details.html?characterId=${ch.id}&page=${currentPage}'">Details</button>
-            <button class="favorite-btn ${favoriteClass}" onclick="onToggleFavorite('${ch.id}')">Favorite</button>
-          </div>
-        </div>`;
+      <div class="episode-item">
+        <img src="${ch.image}" alt="${ch.name}">
+        <h3 class="episode-title">${ch.name}</h3>
+        <p class="episode-author">${ch.species}</p>
+        <p class="episode-genre">${ch.gender}</p>
+        <div class="episode-actions">
+          <button class="details-btn" onclick="window.location='characters-details.html?characterId=${ch.id}&page=${currentPage}'">Details</button>
+          <button class="favorite-btn ${favoriteClass}" onclick="onToggleFavorite('${ch.id}')">Favorite</button>
+        </div>
+      </div>`;
     })
     .join("");
 

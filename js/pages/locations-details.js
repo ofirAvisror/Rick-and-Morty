@@ -1,5 +1,5 @@
 import { locationService } from "../services/locations-service.js";
-import { characterService } from "../services/chararcters-service.js";
+import { characterService } from "../services/characters-service.js";
 import { getIdFromUrl } from "../services/utils.service.js";
 
 let currentLocationId = null;

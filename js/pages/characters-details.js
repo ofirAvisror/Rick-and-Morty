@@ -2,7 +2,7 @@ import { getIdFromUrl, getEpisodeImage } from "../services/utils.service.js";
 
 const params = new URLSearchParams(window.location.search);
 const characterId = params.get("characterId");
-const pageNumber = +params.get("page") || 1;
+const pageNumber = +params.get("page");
 
 loadCharacterDetails(characterId);
 
@@ -66,9 +66,9 @@ function renderCharacterDetails(character) {
           : character.location.name
       }</div>
       <div class="episode-details-actions">
-        <a href="/html/characters/characters-list.html?page=${pageNumber}" class="action-link back-btn-detail">
-               Back to page ${pageNumber}
-        </a>
+        <a href="characters-list.html?page=${pageNumber}" class="action-link back-btn-detail">
+        Back to page ${pageNumber}
+      </a>
 
       </div>
       <h3 class="character-title">Episodes:</h3>

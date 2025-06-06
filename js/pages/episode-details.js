@@ -1,7 +1,7 @@
 import { episodeService } from "../services/Episodes-service.js";
 import { ELEMENT_ID } from "../shared/constants.js";
 import { getEpisodeImage } from "../services/utils.service.js";
-import { characterService } from "../services/chararcters-service.js";
+import { characterService } from "../services/characters-service.js";
 
 let currentEpisodeId = null;
 let pageNumber = 1;
@@ -17,14 +17,14 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function initEpisodeDetails() {
+  const elDetails = document.getElementById(ELEMENT_ID.EPISODE_DETAILS);
+  if (!elDetails) return;
+
   if (currentEpisodeId) {
     renderEpisodeDetails();
   } else {
-    const elDetails = document.getElementById(ELEMENT_ID.EPISODE_DETAILS);
-    if (elDetails) {
-      elDetails.innerHTML =
-        '<p class="error-message">No episode ID provided. Please select an episode from the list.</p>';
-    }
+    elDetails.innerHTML =
+      '<p class="error-message">No episode ID provided. Please select an episode from the list.</p>';
   }
 }
 
@@ -65,11 +65,13 @@ function renderEpisodeDetails() {
         const charactersHtml = characters
           .map(
             (ch) => `
-          <article class="character-item">
-            <img src="${ch.image}" alt="${ch.name}">
-            <h4>${ch.name}</h4>
-          </article>
-        `
+            <a href="/html/characters/characters-details.html?characterId=${ch.id}&page=${pageNumber}">
+              <article class="character-item">
+                <img src="${ch.image}" alt="${ch.name}">
+                <h4>${ch.name}</h4>
+              </article>
+            </a>
+          `
           )
           .join("");
 
