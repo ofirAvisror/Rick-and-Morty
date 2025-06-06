@@ -1,5 +1,6 @@
 import { locationService } from "../services/locations-service.js";
 import { characterService } from "../services/chararcters-service.js";
+import { getIdFromUrl } from "../services/utils.service.js";
 
 let currentLocationId = null;
 
@@ -8,15 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
   currentLocationId = params.get("locationId");
 
   if (currentLocationId) {
-    locationService.loadLocations(() => {
-      renderLocationDetails();
-    });
+    renderLocationDetails();
   } else {
-    const elDetails = document.getElementById("locationDetails");
-    if (elDetails) {
-      elDetails.innerHTML =
-        '<p class="error-message">No location ID provided. Please select a location from the list.</p>';
-    }
+    document.getElementById("locationDetails").innerHTML =
+      '<p class="error-message">No location ID provided.</p>';
   }
 });
 
@@ -24,44 +20,63 @@ function renderLocationDetails() {
   const elDetails = document.getElementById("locationDetails");
   if (!elDetails || !currentLocationId) return;
 
-  elDetails.innerHTML =
-    '<p class="loading-message">Loading location details...</p>';
+  elDetails.innerHTML = "<p>Loading location...</p>";
 
-  const location = locationService.getLocationById(currentLocationId);
+  let location = locationService.getLocationById(currentLocationId);
+
   if (location) {
-    document.title = location.name + " - Location Details";
-    elDetails.innerHTML = `
-      <h2 class="episode-title-detail">${location.name}</h2>
-      <div class="detail-item"><strong>Type:</strong> ${location.type}</div>
-      <div class="detail-item"><strong>Dimension:</strong> ${location.dimension}</div>
-      <div class="episode-details-actions">
-        <a href="locations-list.html" class="action-link back-btn-detail">Back to Locations</a>
-      </div>
-    `;
-
-    characterService
-      .getCharactersByUrls(location.residents)
-      .then((characters) => {
-        const charactersHtml = characters
-          .map(
-            (ch) => `
-        <article class="character-item">
-          <img src="${ch.image}" alt="${ch.name}">
-          <h4>${ch.name}</h4>
-        </article>
-      `
-          )
-          .join("");
-
-        elDetails.innerHTML += `
-        <h3 class="character-title">Residents:</h3>
-        <div class="character-list">${charactersHtml}</div>
-      `;
-      });
+    renderLocation(location);
   } else {
-    elDetails.innerHTML = `
-      <p class="error-message">Location not found.</p>
-      <a href="locations-list.html" class="action-link back-btn-detail">Back to Locations</a>
-    `;
+    fetch(`https://rickandmortyapi.com/api/location/${currentLocationId}`)
+      .then((res) => res.json())
+      .then((loc) => {
+        renderLocation({
+          id: loc.id,
+          name: loc.name,
+          type: loc.type,
+          dimension: loc.dimension,
+          residents: loc.residents,
+        });
+      })
+      .catch(() => {
+        elDetails.innerHTML = `<p class="error-message">Location not found.</p>`;
+      });
   }
+}
+
+function renderLocation(location) {
+  const elDetails = document.getElementById("locationDetails");
+  document.title = location.name + " - Location Details";
+
+  elDetails.innerHTML = `
+    <h2 class="episode-title-detail">${location.name}</h2>
+    <div class="detail-item"><strong>Type:</strong> ${location.type}</div>
+    <div class="detail-item"><strong>Dimension:</strong> ${location.dimension}</div>
+    <div class="episode-details-actions">
+      <a href="locations-list.html" class="action-link back-btn-detail">Back to Locations</a>
+    </div>
+    <h3 class="character-title">Residents:</h3>
+    <p>Loading residents...</p>
+  `;
+
+  if (location.residents.length === 0) {
+    elDetails.innerHTML += `<p>No known residents.</p>`;
+    return;
+  }
+
+  characterService
+    .getCharactersByUrls(location.residents)
+    .then((characters) => {
+      const charactersHtml = characters
+        .map(
+          (ch) => `
+      <article class="character-item">
+        <img src="${ch.image}" alt="${ch.name}">
+        <h4>${ch.name}</h4>
+      </article>`
+        )
+        .join("");
+
+      elDetails.innerHTML += `<div class="character-list">${charactersHtml}</div>`;
+    });
 }

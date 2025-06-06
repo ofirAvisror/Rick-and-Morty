@@ -46,7 +46,7 @@ function renderList() {
           <p class="episode-author">${loc.type}</p>
           <p class="episode-genre">${loc.dimension}</p>
           <div class="episode-actions">
-            <button class="details-btn" onclick="window.location='/html/locations/location-details.html?locationId=${loc.id}&page=${currentPage}'">Details</button>
+            <button class="details-btn" onclick="window.location = 'locations-details.html?locationId=${loc.id}&page=${currentPage}'">Details</button>
             <button class="favorite-btn ${favoriteClass}" onclick="onToggleFavorite('${loc.id}')">Favorite</button>
           </div>
         </div>`;
