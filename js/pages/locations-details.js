@@ -56,7 +56,6 @@ function renderLocation(location) {
       <a href="locations-list.html" class="action-link back-btn-detail">Back to Locations</a>
     </div>
     <h3 class="character-title">Residents:</h3>
-    <p>Loading residents...</p>
   `;
 
   if (location.residents.length === 0) {
