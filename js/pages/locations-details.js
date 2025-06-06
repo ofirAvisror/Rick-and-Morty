@@ -1,4 +1,4 @@
-import { locationService } from "../services/location-service.js";
+import { locationService } from "../services/locations-service.js";
 import { characterService } from "../services/chararcters-service.js";
 
 let currentLocationId = null;
@@ -6,8 +6,11 @@ let currentLocationId = null;
 document.addEventListener("DOMContentLoaded", () => {
   const params = new URLSearchParams(window.location.search);
   currentLocationId = params.get("locationId");
+
   if (currentLocationId) {
-    renderLocationDetails();
+    locationService.loadLocations(() => {
+      renderLocationDetails();
+    });
   } else {
     const elDetails = document.getElementById("locationDetails");
     if (elDetails) {

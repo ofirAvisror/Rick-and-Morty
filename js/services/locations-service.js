@@ -49,7 +49,7 @@ function getLocations(filterBy = {}) {
 }
 
 function getLocationById(id) {
-  return gLocations.find((loc) => loc.id === id);
+  return gLocations.find((loc) => loc.id === id.toString());
 }
 
 function toggleFavorite(id) {
