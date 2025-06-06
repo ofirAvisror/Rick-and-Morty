@@ -59,7 +59,6 @@ function renderEpisodeDetails() {
       </div>
     `;
 
-    // שליפת הדמויות מה-API
     characterService
       .getCharactersByUrls(episode.characters)
       .then((characters) => {

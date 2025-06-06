@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="he">
   <head>
     <meta charset="UTF-8" />
@@ -8,7 +9,7 @@
       sizes="32x32"
       href="../../assets/images/favicon-32x32.png"
     />
-    <title>Characters List</title>
+    <title>Locations</title>
     <link rel="stylesheet" href="../../css/style.css" />
     <link rel="stylesheet" href="../../css/styleEpisods-.css" />
   </head>
@@ -18,15 +19,15 @@
         <nav class="link-area">
           <a href="../index.html">Home</a>
           <a href="../libary-episodes/episodes-list.html">Episodes</a>
-          <a href="../characters/characters-list.html">Characters</a>
-          <a href="../locations/locations-list.html">Locations</a>
+          <a href="../libary-characters/characters-list.html">Characters</a>
+          <a href="locations-list.html">Locations</a>
           <a href="../contact.html">Contact</a>
         </nav>
       </header>
 
       <main>
         <div class="header">
-          <h2>Welcome to the Characters</h2>
+          <h2>Welcome to Our Locations</h2>
         </div>
 
         <div class="filter-controls">
@@ -35,12 +36,13 @@
             id="filterTitle"
             placeholder="Filter by name..."
           />
+          <input type="text" id="filterType" placeholder="Filter by type..." />
           <button id="applyFilterBtn">Apply Filters</button>
           <button id="clearFilterBtn">Clear Filters</button>
         </div>
 
         <div class="main-content-libary">
-          <div class="episodes-list-container" id="CharactersList"></div>
+          <div class="episodes-list-container" id="locationsList"></div>
           <div class="changePage">
             <button class="prevPage">◀ Prev Page</button>
             <button class="nextPage">Next Page ▶</button>
@@ -49,6 +51,6 @@
       </main>
     </div>
 
-    <script type="module" src="../../js/pages/characters-list.page.js"></script>
+    <script type="module" src="../../js/pages/locations-list.js"></script>
   </body>
 </html>
