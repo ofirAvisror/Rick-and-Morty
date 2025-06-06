@@ -4,15 +4,17 @@
   padding: 0;
   font-family: "Lato", sans-serif;
 }
+
 body {
   display: flex;
   align-items: center;
   min-height: 100vh;
   text-align: center;
   flex-direction: column;
-  background: url(../assets/images/second.jpg) repeat center center/ cover;
+  background: url(../assets/images/second.jpg) repeat center center / cover;
   color: #333;
 }
+
 .container {
   width: 90%;
   max-width: 700px;
@@ -81,65 +83,78 @@ body {
 }
 
 .header-contact {
-  font-size: 1.2rem;
-  border: solid 2px white;
-  color: rgb(229, 121, 177);
-  background-color: rgba(250, 248, 195, 0.9);
-  border-radius: 5px;
-  padding: 10px;
-  width: 100%;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #cc2e72;
+  background-color: #f9f9f9;
+  padding: 12px;
+  border-radius: 6px;
   margin-bottom: 20px;
+  border: 1px solid #eee;
 }
+
 .content-block-contact {
   width: 100%;
-  background-color: rgba(255, 248, 239, 0.9);
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #ffffffee;
+  border-radius: 12px;
+  padding: 30px 25px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.06);
 }
+
 .text-area-contact {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   line-height: 1.5;
-  padding: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
   text-align: center;
+  color: #333;
 }
 
 .form-contact {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
+  gap: 15px;
 }
+
 .paragrph-form-contact {
-  padding: 8px 0;
   display: flex;
-  flex-direction: column;
-  text-align: left;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
 }
+
 .paragrph-form-contact label {
-  margin-bottom: 5px;
+  flex: 0 0 100px;
+  text-align: right;
   font-weight: bold;
+  font-size: 1rem;
+  color: #333;
 }
+
 .paragrph-form-contact input[type="text"],
 .paragrph-form-contact input[type="email"],
 .paragrph-form-contact input[type="tel"],
 .paragrph-form-contact textarea {
+  flex: 1;
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 6px;
   font-size: 1rem;
+  background-color: #fefefe;
 }
+
 .paragrph-form-contact textarea {
   resize: vertical;
   min-height: 100px;
 }
 
 .button-area-contact {
-  margin-top: 15px;
+  margin-top: 20px;
   text-align: center;
 }
+
 .button-area-contact .send-contact-btn {
-  background-color: #262626;
+  background-color: #333;
   color: white;
   font-size: 1.1rem;
   padding: 10px 25px;
@@ -148,28 +163,73 @@ body {
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
 }
+
 .button-area-contact .send-contact-btn:active {
-  background-color: rgb(204, 229, 238);
-  color: #262626;
+  background-color: #eee;
+  color: #000;
 }
+
 .button-area-contact .send-contact-btn:hover {
   background-color: #444;
   transform: scale(1.05);
 }
 
 .bottom-contact-info {
-  padding: 20px;
-  margin-top: 20px;
+  padding: 30px;
+  margin-top: 30px;
   font-size: 1rem;
-  font-weight: normal;
-  background-color: rgba(250, 248, 195, 0.8);
-  border-radius: 8px;
-}
-.bottom-contact-info h3 {
-  margin-bottom: 10px;
+  background-color: rgba(240, 248, 255, 0.85);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   color: #333;
 }
-.bottom-contact-info p {
-  padding: 5px 0;
-  color: #555;
+
+.bottom-contact-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #0077cc;
+}
+
+.contact-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.contact-card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  flex: 1 1 250px;
+  max-width: 300px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  text-align: center;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+}
+
+.contact-card h4 {
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.contact-card p {
+  margin: 8px 0;
+  font-size: 1rem;
+}
+
+.contact-card a {
+  color: #0077cc;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.contact-card a:hover {
+  color: #005fa3;
+  text-decoration: underline;
 }
