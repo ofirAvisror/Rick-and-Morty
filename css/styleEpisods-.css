@@ -275,3 +275,32 @@ body {
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   }
 }
+
+@media (max-width: 768px) {
+  body {
+    background-size: cover;
+    background-position: left center;
+    background-attachment: scroll;
+  }
+
+  .link-area {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .link-area a {
+    flex: 1 1 calc(50% - 20px);
+    max-width: calc(50% - 20px);
+    text-align: center;
+    background-color: #ffffffcc;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  .main-header {
+    padding: 10px 5px;
+  }
+}
+
