@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const sendBtn = document.getElementById("sendBtn");
   const form = document.querySelector(".form-contact");
   const message = document.getElementById("formMessage");
+  const submitImage = document.getElementById("submitImage");
 
   sendBtn.addEventListener("click", function (e) {
     e.preventDefault();
@@ -17,10 +18,17 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     message.style.display = "block";
+
+    submitImage.style.display = "block";
+    submitImage.style.animation = "none";
+    submitImage.offsetHeight; // force reflow
+    submitImage.style.animation = "grow 2s ease-in-out forwards";
+
     form.reset();
 
     setTimeout(() => {
       message.style.display = "none";
+      submitImage.style.display = "none";
     }, 5000);
   });
 });

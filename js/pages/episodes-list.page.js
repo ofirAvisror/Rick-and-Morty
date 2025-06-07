@@ -1,9 +1,7 @@
 import { episodeService } from "../services/Episodes-service.js";
 import { ELEMENT_ID } from "../shared/constants.js";
 import { getEpisodeImage } from "../services/utils.service.js";
-
 let currentPage = 1;
-
 const elFilterTitle = document.getElementById("filterTitle");
 const elFilterSeason = document.getElementById("filterSeason");
 const elNextPageBtn = document.querySelector(".nextPage");
@@ -111,3 +109,21 @@ function onViewDetails(episodeId) {
 
 window.onToggleFavorite = onToggleFavorite;
 window.onViewDetails = onViewDetails;
+document.addEventListener("click", function (e) {
+  const target = e.target.closest("a");
+  if (!target || !target.href || target.getAttribute("target") === "_blank")
+    return;
+
+  e.preventDefault();
+  const href = target.href;
+  const gif = document.getElementById("portalGifWrapper");
+  const sound = document.getElementById("portalSound");
+
+  gif.style.display = "flex";
+  sound.currentTime = 0;
+  sound.play();
+
+  setTimeout(() => {
+    window.location.href = href;
+  }, 900);
+});

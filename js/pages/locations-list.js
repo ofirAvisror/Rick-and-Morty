@@ -61,3 +61,20 @@ function onToggleFavorite(locationId) {
 }
 
 window.onToggleFavorite = onToggleFavorite;
+document.addEventListener("click", function (e) {
+  const target = e.target.closest("a");
+  if (!target || !target.href || target.getAttribute("target") === "_blank")
+    return;
+
+  e.preventDefault();
+  const href = target.href;
+  const gif = document.getElementById("portalGifWrapper");
+  const sound = document.getElementById("portalSound");
+
+  gif.style.display = "flex";
+  sound.play();
+  setTimeout(() => {
+    window.location.href = href;
+  }, 900);
+});
+window.onViewDetails = onViewDetails;
