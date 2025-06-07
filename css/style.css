@@ -1,15 +1,18 @@
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+  background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+  background-attachment: fixed;
+  color: #f8f8f8;
 }
 
 .container {
-    width: 80%;
-    margin: auto;
-    /* overflow: hidden; */
-    padding: 0 20px;
+  width: 80%;
+  margin: auto;
+  /* overflow: hidden; */
+  padding: 0 20px;
 }

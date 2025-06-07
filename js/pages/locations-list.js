@@ -40,8 +40,7 @@ function renderList() {
     .map((loc) => {
       const favoriteClass = loc.favorite ? "is-favorite" : "";
       return `
-        <div class="episode-item">
-          <img src="../../assets/images/rick.gif" style="width: 150px" alt="${loc.name}">
+        <div class="episode-item-location">
           <h3 class="episode-title">${loc.name}</h3>
           <p class="episode-author">${loc.type}</p>
           <p class="episode-genre">${loc.dimension}</p>

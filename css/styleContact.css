@@ -11,7 +11,7 @@ body {
   min-height: 100vh;
   text-align: center;
   flex-direction: column;
-  background: url(../assets/images/fuck.jpeg) repeat center center / cover;
+  /* background: url(../assets/images/fuck.jpeg) repeat center center / cover; */
   color: #333;
 }
 
@@ -85,7 +85,7 @@ body {
 .header-contact {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #cc2e72;
+  color: #350017;
   background-color: #f9f9f9;
   padding: 12px;
   border-radius: 6px;
