@@ -5,6 +5,26 @@
   font-family: "Lato", sans-serif;
 }
 
+body {
+  background: url(../assets/images/wallp.png)   ;
+  color: #333;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}
+.main-header {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #ffffffcc;
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #e0e0e0;
+  padding: 12px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
 .episode-details-container {
   background-color: rgba(255, 248, 239, 0.95);
   padding: 30px;
@@ -131,28 +151,6 @@
   padding: 20px;
   color: #777;
 }
-
-body {
-  background: url(../assets/images/fuck.jpeg) repeat center center/ cover;
-  color: #333;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  flex-direction: column;
-}
-.main-header {
-  width: 100%;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background-color: #ffffffcc;
-  border-radius: 8px;
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid #e0e0e0;
-  padding: 12px 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
 .link-area {
   display: flex;
   justify-content: center;
