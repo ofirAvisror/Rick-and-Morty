@@ -18,10 +18,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     message.style.display = "block";
-
     submitImage.style.display = "block";
     submitImage.style.animation = "none";
-    submitImage.offsetHeight; // force reflow
+
     submitImage.style.animation = "grow 2s ease-in-out forwards";
 
     form.reset();
@@ -31,4 +30,21 @@ document.addEventListener("DOMContentLoaded", function () {
       submitImage.style.display = "none";
     }, 5000);
   });
+});
+
+document.addEventListener("click", function (e) {
+  const target = e.target.closest("a");
+  if (!target || !target.href || target.getAttribute("target") === "_blank")
+    return;
+
+  e.preventDefault();
+  const href = target.href;
+  const gif = document.getElementById("portalGifWrapper");
+  const sound = document.getElementById("portalSound");
+
+  gif.style.display = "flex";
+  sound.play();
+  setTimeout(() => {
+    window.location.href = href;
+  }, 900);
 });

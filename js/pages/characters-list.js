@@ -62,7 +62,6 @@ function onToggleFavorite(characterId) {
   renderList();
 }
 
-window.onToggleFavorite = onToggleFavorite;
 document.addEventListener("click", function (e) {
   const target = e.target.closest("a");
   if (!target || !target.href || target.getAttribute("target") === "_blank")
@@ -79,4 +78,5 @@ document.addEventListener("click", function (e) {
     window.location.href = href;
   }, 900);
 });
+window.onToggleFavorite = onToggleFavorite;
 window.onViewDetails = onViewDetails;
