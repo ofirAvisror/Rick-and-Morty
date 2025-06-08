@@ -79,4 +79,3 @@ document.addEventListener("click", function (e) {
   }, 900);
 });
 window.onToggleFavorite = onToggleFavorite;
-window.onViewDetails = onViewDetails;

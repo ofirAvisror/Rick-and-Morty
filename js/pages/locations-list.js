@@ -77,4 +77,3 @@ document.addEventListener("click", function (e) {
     window.location.href = href;
   }, 900);
 });
-window.onViewDetails = onViewDetails;

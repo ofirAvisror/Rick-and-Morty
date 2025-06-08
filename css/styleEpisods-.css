@@ -115,14 +115,7 @@ body {
 .filter-controls button:active {
   background-color: #555;
 }
-.main-content-libary {
-  width: 100%;
-  background-color: rgba(255, 248, 239, 0.9);
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-top: 5%;
-}
+
 .episodes-list-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
