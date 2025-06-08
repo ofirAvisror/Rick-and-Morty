@@ -189,12 +189,13 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("/assets/images/location.gif");
+  background-image: url("/assets/images/rick.gif");
   background-size: cover;
   background-position: center;
   opacity: 0;
   transition: opacity 0.4s ease-in-out;
   z-index: 0;
+  width: 200px;
 }
 
 .episode-item-location:hover {
