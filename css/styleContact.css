@@ -12,6 +12,7 @@ body {
   text-align: center;
   flex-direction: column;
   background: url(../assets/images/fonContact.jpg) repeat center center / cover;
+  background-attachment: fixed;
   color: #333;
 }
 
@@ -321,4 +322,3 @@ body {
   top: 0;
   left: 0;
 }
-

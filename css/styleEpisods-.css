@@ -10,6 +10,7 @@ body {
   text-align: center;
   flex-direction: column;
   background: url(../assets/images/image\ 3.jpg);
+  background-attachment: fixed;
   color: #333;
 }
 .container {
@@ -355,4 +356,3 @@ body {
   top: 0;
   left: 0;
 }
-
