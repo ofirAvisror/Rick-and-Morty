@@ -3,7 +3,7 @@ const grid = document.getElementById("photoGrid");
 const NUM_CELLS = 100;
 
 const imagePaths = Array.from(
-  { length: 34 },
+  { length: 60 },
   (_, i) => "../assets/images/" + (i + 1) + ".jpg"
 );
 const videoPaths = Array.from(
@@ -35,7 +35,7 @@ function renderRandomCell() {
   const cell = getRandomEmptyCell();
   if (!cell) return;
 
-  const type = Math.random() < 0.6 ? "image" : "video";
+  const type = Math.random() < 0.8 ? "image" : "video";
 
   if (type === "image") {
     const img = document.createElement("img");
