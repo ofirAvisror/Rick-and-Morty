@@ -1,5 +1,4 @@
 const grid = document.getElementById("photoGrid");
-
 const NUM_CELLS = 100;
 
 const imagePaths = Array.from(
@@ -42,7 +41,6 @@ function renderRandomCell() {
     img.src = randomItem(imagePaths);
     img.classList.add("fade-in");
     cell.appendChild(img);
-
     setTimeout(() => {
       cell.innerHTML = "";
     }, 5000);
@@ -54,32 +52,29 @@ function renderRandomCell() {
     video.playsInline = true;
     video.loop = false;
     video.classList.add("fade-in");
-
     video.onended = () => {
       cell.innerHTML = "";
     };
-
     cell.appendChild(video);
   }
 }
 
-createGrid();
-
-setInterval(renderRandomCell, 200);
-
-document.addEventListener("click", function (e) {
-  const target = e.target.closest("a");
-  if (!target || !target.href || target.getAttribute("target") === "_blank")
-    return;
-
-  e.preventDefault();
-  const href = target.href;
-  const gif = document.getElementById("portalGifWrapper");
-  const sound = document.getElementById("portalSound");
-
-  gif.style.display = "flex";
+function playTransitionEffect() {
+  const overlay = document.getElementById("transition-overlay");
+  const sound = document.getElementById("transition-sound");
+  overlay.innerHTML = "";
+  for (let i = 0; i < 96; i++) {
+    const block = document.createElement("div");
+    const delay = ((i % 12) + Math.floor(i / 12)) * 50;
+    block.style.animationDelay = `${delay}ms`;
+    overlay.appendChild(block);
+  }
   sound.play();
   setTimeout(() => {
-    window.location.href = href;
-  }, 900);
-});
+    overlay.style.display = "none";
+  }, 1500);
+}
+
+createGrid();
+setInterval(renderRandomCell, 200);
+window.addEventListener("DOMContentLoaded", playTransitionEffect);

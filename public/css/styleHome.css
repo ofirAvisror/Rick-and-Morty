@@ -188,26 +188,27 @@ body {
     padding: 10px 5px;
   }
 }
-#portalGifWrapper {
+#transition-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  inset: 0;
   z-index: 9999;
-  display: none;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  pointer-events: none;
+  background: black;
 }
 
-#portalGif {
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
+#transition-overlay div {
+  background: linear-gradient(135deg, #7f5af0, #2cb67d);
+  animation: cubeFade 1s forwards;
+  transform: scale(1);
+  opacity: 1;
 }
 
+@keyframes cubeFade {
+  to {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
