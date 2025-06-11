@@ -1,0 +1,25 @@
+{
+  "name": "rick-and-morty",
+  "version": "1.0.0",
+  "description": "MyLibrary is a web application that helps users manage their book collection. The application will use local storage to persist data and focus on implementing proper separation of concerns in JavaScript code organization.",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ofirAvisror/Rick-and-Morty.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ofirAvisror/Rick-and-Morty/issues"
+  },
+  "homepage": "https://github.com/ofirAvisror/Rick-and-Morty#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
